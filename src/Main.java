@@ -41,21 +41,19 @@ public class Main {
             break;
         }
         System.out.println("Оплаты хватит: на " + currentDay + " дней хватит бюджета.");
-
-        int budget1 = 5000;
-        int costPerDay1 = 100;
-        int remainingBudget1 = budget1;
-        int daysCount1 = 0;
-        for (int day = 1; remainingBudget1 >= costPerDay1; day++) {
-            daysCount1++;
-
-            if (day % 5 == 0) {
-
-                remainingBudget1 -= costPerDay1;
+// Задача 3 (for)
+        for (int day = 1; remainingBudget >= costPerDay; day++) {
+            currentDay = day;
+            if (currentDay % 5 == 0) {
+                continue;
             }
-
-            System.out.println("Версия с for: на " + daysCount1 + " дней хватит бюджета.");
+            remainingBudget -= costPerDay;
+            break;
         }
+
+        System.out.println("Оплаты хватит: на " + currentDay + " дней хватит бюджета.");
+
+
         //Задача 4
         int month = 0;
         int total = 0;
