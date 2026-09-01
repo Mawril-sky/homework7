@@ -42,7 +42,7 @@ public class Main {
             }
             budget -= costPerDay;
         }
-        System.out.println("(while) На бюджет хватит на: " + currentDay + " дней");
+        System.out.println("Бюджета хватит на: " + currentDay + " дней");
 
 // Задача 3 (for)
         for (; true; ) {
@@ -55,7 +55,7 @@ public class Main {
             }
             budget -= costPerDay;
         }
-        System.out.println("На бюджет хватит на: " + currentDay + " дней");
+        System.out.println("Бюджета хватит на: " + currentDay + " дней");
 
 
         //Задача 4
