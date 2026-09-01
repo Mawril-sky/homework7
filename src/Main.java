@@ -27,31 +27,35 @@ public class Main {
             System.out.println("Держитесь! Осталось " + (totalDistance1 - distance1) + " метров");
         }
         //Задача 3
-        int budget = 1000;
-        int costPerDay = 100;
-        int currentDay = 0;
-        int remainingBudget = budget;
+        int budget = 1000;          // начальный бюджет
+        int costPerDay = 100;       // стоимость одного дня
+        int currentDay = 0;         // счётчик дней
 
-        while (remainingBudget >= costPerDay) {
+        while (true) {              // бесконечный цикл, выход — по break
+            currentDay++;           // увеличиваем день
+
+            if (currentDay % 5 == 0) {
+                continue;
+            }
+            if (budget < costPerDay) {
+                break;
+            }
+            budget -= costPerDay;
+        }
+        System.out.println("(while) На бюджет хватит на: " + currentDay + " дней");
+
+// Задача 3 (for)
+        for (; true; ) {
             currentDay++;
             if (currentDay % 5 == 0) {
                 continue;
             }
-            remainingBudget -= costPerDay;
-            break;
-        }
-        System.out.println("Оплаты хватит: на " + currentDay + " дней хватит бюджета.");
-// Задача 3 (for)
-        for (int day = 1; remainingBudget >= costPerDay; day++) {
-            currentDay = day;
-            if (currentDay % 5 == 0) {
-                continue;
+            if (budget < costPerDay) {
+                break;
             }
-            remainingBudget -= costPerDay;
-            break;
+            budget -= costPerDay;
         }
-
-        System.out.println("Оплаты хватит: на " + currentDay + " дней хватит бюджета.");
+        System.out.println("На бюджет хватит на: " + currentDay + " дней");
 
 
         //Задача 4
