@@ -2,14 +2,104 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //Задача 1
+        int firstFriday = 10;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        for (int day = 1; day <= 31; day++) {
+
+            if (day >= firstFriday && (day - firstFriday) % 7 == 0) {
+                System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
+            }
         }
+        //Задача 2
+        int distance = 0;
+        final int totalDistance = 42195;
+        final int step = 500;
+
+        do {
+            System.out.println("Держитесь! Осталось " + (totalDistance - distance) + " метров");
+            distance += step;
+        } while (distance < totalDistance);
+
+        final int totalDistance1 = 42195;
+        final int step1 = 500;
+        for (int distance1 = 0; distance1 < totalDistance1; distance1 += step1) {
+            System.out.println("Держитесь! Осталось " + (totalDistance1 - distance1) + " метров");
+        }
+        //Задача 3
+        int budget = 1000;          // начальный бюджет
+        int costPerDay = 100;       // стоимость одного дня
+        int currentDay = 0;         // счётчик дней
+
+        while (true) {              // бесконечный цикл, выход — по break
+            currentDay++;           // увеличиваем день
+
+            if (currentDay % 5 == 0) {
+                continue;
+            }
+            if (budget < costPerDay) {
+                break;
+            }
+            budget -= costPerDay;
+        }
+        System.out.println("Бюджета хватит на: " + currentDay + " дней");
+
+// Задача 3 (for)
+        for (; true; ) {
+            currentDay++;
+            if (currentDay % 5 == 0) {
+                continue;
+            }
+            if (budget < costPerDay) {
+                break;
+            }
+            budget -= costPerDay;
+        }
+        System.out.println("Бюджета хватит на: " + currentDay + " дней");
+
+
+        //Задача 4
+        int month = 0;
+        int total = 0;
+        while (true) {
+            month++;
+            total += 15000;
+            if (month % 6 == 0) {
+                total += total * 0.07;
+
+            }
+            System.out.println("Месяц " + month + ": " + total + " ₽");
+            if (total >= 12000000) {
+                break;
+            }
+        }
+        //Задача 5
+        int charge = 20;
+        int minute = 0;
+        int overheats = 0;
+
+        while (charge < 100 && overheats <= 3) {
+            minute++;
+
+            if (minute % 10 == 0) {
+                overheats++;
+
+                if (overheats > 3) {
+                    System.out.println("Зарядка завершена досрочно из‑за превышения допустимого количества перегревов.");
+                    break;
+                }
+
+                System.out.println("Перегрев! Пропускаем зарядку на 2 минуты.");
+                continue;
+            }
+            charge += 2;
+            if (charge == 100) {
+                charge = 100;
+            }
+        }
+        System.out.println("Время зарядки составило " + minute + " минут.");
     }
+
 }
+
+
